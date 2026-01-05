@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <script
+      type="module"
+      src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"
+    ></script>
+
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <title>Contact</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <a href="index.html">
+          <img src="images/banner.png" alt="Logo" class="logo" />
+        </a>
+      </header>
+
+      <nav>
+        <div class="nav-links">
+          <a href="index.html" class="active">Home</a>
+          <a href="skills.html">Skills</a>
+          <a href="education.html">Education</a>
+          <a href="faq.html">FAQ</a>
+          <a href="contact.html">Contact</a>
+        </div>
+
+        <div class="nav-socials">
+          <a href="https://www.instagram.com/instagram" target="_blank">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.patreon.com/c/NandoHeemstra" target="_blank">
+            <i class="fa-brands fa-patreon"></i>
+          </a>
+          <a
+            href="https://www.youtube.com/@NandoHeemstra"
+            target="_blank"
+            class="youtube"
+          >
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+        </div>
+      </nav>
+
+      <main>
+        <div class="content">
+          <model-viewer
+            src="models/nandoheemstrapfp3d.glb"
+            alt="3D Avatar"
+            auto-rotate
+            camera-controls
+            disable-zoom
+            class="logo slide-left"
+            style="width: 400px; height: 400px; border: none"
+          >
+          </model-viewer>
+
+          <div class="text slide-right">
+            <h2>About Me</h2>
+            <p>Hi, I am Nando Heemstra</p>
+          </div>
+        </div>
+      </main>
+
+      <footer>
+        <a href="https://www.instagram.com/instagram" target="_blank">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.patreon.com/c/NandoHeemstra" target="_blank">
+          <i class="fa-brands fa-patreon"></i>
+        </a>
+        <a
+          href="https://www.youtube.com/@NandoHeemstra"
+          target="_blank"
+          class="youtube"
+        >
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+        <p>© 2026 Nando Heemstra</p>
+      </footer>
+    </div>
+    <script src="js/script.js"></script>
+  </body>
+</html>
