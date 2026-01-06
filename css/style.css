@@ -1,3 +1,5 @@
+
+
 /* Reset default browser spacing */
 html, body {
     margin: 0;
@@ -7,6 +9,14 @@ html, body {
     background-color: #8b8b8b;
     color: #000000;
 }
+
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+
 
 /* Wrapper flex column */
 .wrapper {
@@ -83,6 +93,25 @@ nav {
     color: rgb(227, 16, 16);
 }
 
+.nav-links a {
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
 /* Main content area */
 main {
     flex: 1;
@@ -90,7 +119,8 @@ main {
     justify-content: center; 
     align-items: flex-start;    
     padding: 20px;
-    margin: 15px;
+    /* This MUST be consistent across all pages */
+    margin: 0 15px 15px 15px; 
     background-color: rgb(139, 139, 139);
     border-radius: 5px;
 }
@@ -331,4 +361,333 @@ footer p {
 
 .book-link img {
   cursor: pointer;
+}
+
+
+/* ============================================================
+   COMPLETE SKILLS SECTION CSS
+   ============================================================ */
+
+/* 1. Reset & Top Alignment (The most important part) */
+main.skills-page {
+    display: block !important; 
+    /* Changed from 0 to 15px to match other pages */
+    margin: 0 15px 15px 15px !important; 
+    padding: 0 !important; 
+    background-color: #8b8b8b;
+    width: auto; /* width: 100% was fighting the margin */
+}
+
+.skills-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto !important;      /* Centers the container but snaps to top */
+    padding: 10px 20px 40px 20px;   /* 10px gap from the nav bar */
+}
+
+/* 2. Header & Intro Text */
+.skills-section h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #fff;
+    margin: 0 0 10px 0 !important;  /* Snaps title to top */
+    padding: 0 !important;
+}
+
+.skills-intro {
+    max-width: 800px;
+    margin: 0 auto 30px auto !important;
+    text-align: center;
+}
+
+.skills-intro p {
+    margin: 0;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 12px 20px;
+    border-radius: 10px;
+    border-left: 4px solid #888;
+    display: inline-block;
+    line-height: 1.5;
+    color: #000;
+    font-size: 1.05rem;
+}
+
+/* 3. The Grid & Categories */
+.skills-grid {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.skill-category {
+    flex: 1;
+    min-width: 350px;
+    background: rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    border-radius: 15px;
+    box-sizing: border-box;
+}
+
+.skill-category h2 {
+    color: #fff;
+    border-bottom: 2px solid #555;
+    padding-bottom: 10px;
+    margin: 0 0 20px 0;
+}
+
+/* 4. Groups & Intros */
+.skill-group {
+    margin-top: 25px;
+    padding-left: 15px;
+    border-left: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+.skill-group h3 {
+    font-size: 1.2rem;
+    color: #f0f0f0;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.group-intro {
+    font-size: 0.9rem;
+    color: #000; 
+    line-height: 1.4;
+    margin-bottom: 15px;
+    font-style: italic;
+    max-width: 95%;
+    padding-left: 10px;
+    border-left: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.skill-sub-group {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.skill-sub-group h4 {
+    color: #ccc;
+    font-size: 0.95rem;
+    margin: 15px 0 10px 0;
+    font-style: italic;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    display: inline-block;
+}
+
+/* 5. Skill Bars & Interaction */
+.skill {
+    background: #1e1e1e;
+    padding: 15px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 0.6s ease-out forwards;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.skill:hover {
+    transform: scale(1.02);
+    background: #2a2a2a;
+}
+
+.skill-header {
+    display: flex;
+    justify-content: space-between;
+    color: azure;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.skill-bar {
+    background: #333;
+    height: 10px;
+    width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.skill-fill {
+    background: linear-gradient(90deg, #929292, #e6e6e6);
+    height: 100%;
+    transition: width 1s ease-in-out;
+}
+
+.skill-description {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, margin-top 0.3s ease;
+    color: #aaa;
+    font-size: 0.85rem;
+    margin-top: 0;
+}
+
+/* 6. Animations & Responsiveness */
+@keyframes slideUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 850px) {
+    .skills-grid { flex-direction: column; }
+    .skill-category { width: 100%; min-width: unset; }
+}
+
+
+
+
+
+
+
+/* --- EDUCATION PAGE (ANIMATED VERSION) --- */
+main.education-page {
+    display: block !important;
+    /* Changed from 0 to 15px to match other pages */
+    margin: 0 15px 15px 15px !important;
+    padding: 0 !important;
+    background-color: #8b8b8b;
+}
+
+.education-section {
+    max-width: 800px;
+    margin: 0 auto !important;
+    padding: 20px;
+}
+
+.education-section h1 {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+}
+
+/* Base Card Styling */
+.edu-item {
+    background: rgba(0, 0, 0, 0.15);
+    padding: 40px;
+    border-radius: 20px;
+    border-top: 4px solid #000;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Reusing your Skill Animation Logic */
+.edu-item.skill, .edu-detail-card.skill {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 0.6s ease-out forwards;
+}
+
+.edu-header-main {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.edu-icon {
+    font-size: 3rem;
+    color: #fff;
+}
+
+.edu-title-group h2 {
+    margin: 0;
+    color: #fff;
+    font-size: 1.8rem;
+}
+
+.edu-title-group h3 {
+    margin: 5px 0;
+    color: #000;
+    font-weight: bold;
+}
+
+/* Progress Bar Styling */
+.progress-area {
+    margin-bottom: 40px;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.edu-bar {
+    height: 20px;
+    background: #333;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid rgba(255,255,255,0.1);
+}
+
+.edu-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #929292, #e6e6e6);
+    /* Animation for the bar itself */
+    width: 0; 
+    transition: width 1.5s cubic-bezier(0.1, 0.5, 0.5, 1);
+}
+
+/* Grid for the sub-info */
+.edu-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.edu-detail-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.edu-detail-card h4 {
+    margin-top: 0;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+    color: #fff;
+}
+
+.edu-detail-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.edu-detail-card ul li {
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+}
+
+.edu-detail-card i {
+    color: #000; /* Matching your black accent theme */
+    margin-right: 10px;
+    font-size: 0.8rem;
+}
+
+/* Keyframes (if not already in your file) */
+@keyframes slideUp {
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 650px) {
+    .edu-details-grid { grid-template-columns: 1fr; }
+    .edu-header-main { flex-direction: column; text-align: center; }
+}
+
+/* 3. Make the checkmarks white */
+.edu-detail-card ul li i.fa-check {
+    color: #ffffff !important; /* Pure white */
+    margin-right: 10px;
+    font-size: 0.9rem;
 }
